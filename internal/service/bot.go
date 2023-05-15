@@ -9,6 +9,7 @@ import (
 	"github.com/SevereCloud/vksdk/api"
 	"github.com/SevereCloud/vksdk/api/params"
 	"github.com/SevereCloud/vksdk/object"
+
 	"github.com/ZiganshinDev/scheduleVKBot/internal/database"
 
 	longpoll "github.com/SevereCloud/vksdk/longpoll-bot"
@@ -158,9 +159,6 @@ func botHandler(vk *api.VK, lp *longpoll.Longpoll) {
 }
 
 func checkInMap(obj string, m map[string]string) bool {
-	if _, inMap := m[obj]; inMap {
-		return true
-	}
-
-	return false
+	_, inMap := m[obj]
+	return inMap
 }
